@@ -584,3 +584,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Ignore Gradle build output directory
+build
