@@ -42,9 +42,31 @@ public class Catalog {
 
         // TASK AREA START
 
+        // Try sorting the list of your now comparable CatalogItems using the Collections.sort(...) method.
+        System.out.println("\n## Sort by ID (natural sorting order)");
+        Collections.sort(catalog);
+        printCatalog(catalog);
 
+        // Try out whether your comparator works using Collections.sort(<someCollection>, <someComparator>) 
+        System.out.println("\n## Sort by Price (with Collections.sort)");
+        Collections.sort(catalog, new PriceComparator());
+        printCatalog(catalog);
 
-        // TASK ARE END
+        // or directly using the lists sort(<someComparator>) method.
+        System.out.println("\n## Sort by Price (with sort method of list)");
+        catalog.sort(new PriceComparator());
+        printCatalog(catalog);
+
+        // Now come up with at least two other ways of sorting the catalog and try them out in the same fashion as the previous steps.
+        System.out.println("\n## Sort by Name (ignore case)");
+        catalog.sort(new NameIgnoreCaseComparator());
+        printCatalog(catalog);
+
+        System.out.println("\n## Sort by Category, Price and ID");
+        catalog.sort(new CategoryAndPriceAndIdComparator());
+        printCatalog(catalog);
+
+        // TASK AREA END
     }
 
     /**
@@ -52,7 +74,7 @@ public class Catalog {
      * @param catalog The catalog list to display.
      */
     private static void printCatalog(List<CatalogItem> catalog) {
-        System.out.println("ID\tName\t\tPrice\tCategory");
+        System.out.println("\nID\tName\t\tPrice\tCategory");
         catalog.forEach((item) -> System.out.println(item.getID() + "\t" + item.getName() + ((item.getName().length() > 8) ? "\t" : "\t\t") + item.getPrice().toString() + "\t" + item.getCategory()));
     }
 }
