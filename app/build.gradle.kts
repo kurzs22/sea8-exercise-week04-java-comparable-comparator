@@ -26,7 +26,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("com.wildcodeschool.sea8.excercises.w04_comparable_comparator.App")
+    mainClass.set("com.wildcodeschool.sea8.excercises.w04_comparable_comparator.Catalog")
 }
 
 tasks.named<Test>("test") {

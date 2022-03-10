@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Catalog {
     // File containing our catalog
@@ -30,6 +32,11 @@ public class Catalog {
             e.printStackTrace();
             return;
         }
+        // After the catalog is loaded, we randomly scramble the ordering of the list.
+        // Note that we are seeding the random shuffling so that we always get the same
+        // result on consecutive executions with the same data.
+        Collections.shuffle(catalog, new Random(20220310));
+
         // Next we have a look at the data.
         printCatalog(catalog);
 
